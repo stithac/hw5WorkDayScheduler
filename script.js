@@ -8,14 +8,17 @@ var hourEl;
 var eventMoment = moment();
 
 console.log(eventMoment);
-console.log(eventMoment.format("hA"));
 
 console.log(eventMoment.format("MMMM D YYYY hA"));
 
 var currentYear = eventMoment.format("YYYY");
 var currentMonth = eventMoment.format("MMMM");
 var currentDay = eventMoment.format("D");
-var currentHour = eventMoment.format("HH");
+var currentHour = parseInt(eventMoment.format("HH"), 10);
+
+console.log(eventMoment.format("HH"));
+console.log("Current hour: " + currentHour);
+
 
 var meetings = [];
 
@@ -30,15 +33,15 @@ function buildScheduler(){
 
         var hourDiv = $("<div>");
         hourDiv.attr("class", "hour");
-        hourDiv.attr("data-hour", h);
+        hourDiv.attr("data-hour", parseInt(h, 10));
 
 
         timeblockDiv.append(hourDiv);
 
         if(j < 3 ){
-            hourEl = times[i] + " AM";
+            hourEl = times[i] + "AM";
         }else{
-            hourEl = times[i] + " PM";
+            hourEl = times[i] + "PM";
         }
 
         $(hourDiv).text(hourEl);
@@ -49,8 +52,8 @@ function buildScheduler(){
         descriptionEl.attr("data-hour", h);
         descriptionEl.attr("id", h);
 
-        console.log(currentHour);
-        console.log($(hourDiv).attr("data-hour"));
+        // console.log(currentHour);
+        console.log("data-hour: " + $(hourDiv).attr("data-hour"));
 
         if(parseInt($(hourDiv).attr("data-hour")) < currentHour){
             $(descriptionEl).attr("class", "description past");
@@ -87,8 +90,8 @@ function saveInput(btn){
     if (storedMeetings !== null){
         meetings = storedMeetings;
     }
-    console.log("Save Button");
-    console.log(btn);
+
+    // console.log(btn);
 
     var dataHour = $(btn).attr("data-hour");
 
@@ -101,6 +104,7 @@ function saveInput(btn){
 
         meetings.push(eventData);
 
+    console.log(meetings);
 
     localStorage.setItem("meetings", JSON.stringify(meetings));
 }
