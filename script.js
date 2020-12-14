@@ -18,9 +18,10 @@ function buildScheduler(){
     var h = 9;
     var hourEl;
 
-    $(".imgGif").attr("src", "https://media.giphy.com/media/iH6ZjzyLgZSt3j0zzG/giphy.gif");
+    $(".imgGif").attr("src", "https://media.giphy.com/media/iH6ZjzyLgZSt3j0zzG/giphy.gif"); //Add gifImg to the page
 
-    $("#currentDay").text(currentDay);
+    $("#currentDay").text(currentDay); //Update the current day
+    $("#currentDay").attr("style", "font-weight:bold");
 
     for(i = 0; i < 9; i++){
 
