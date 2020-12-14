@@ -34,7 +34,7 @@ function buildScheduler(){
         var hourDiv = $("<div>");
         hourDiv.attr("class", "hour");
         hourDiv.attr("data-hour", parseInt(h, 10));
-
+        hourDiv.attr("id", h + "hour");
 
         timeblockDiv.append(hourDiv);
 
@@ -50,9 +50,8 @@ function buildScheduler(){
         var descriptionEl = $("<input>");
         descriptionEl.attr("class", "description");
         descriptionEl.attr("data-hour", h);
-        descriptionEl.attr("id", h);
+        descriptionEl.attr("id", h + "description");
 
-        // console.log(currentHour);
         console.log("data-hour: " + $(hourDiv).attr("data-hour"));
 
         if(parseInt($(hourDiv).attr("data-hour")) < currentHour){
@@ -66,6 +65,19 @@ function buildScheduler(){
         }
 
         timeblockDiv.append(descriptionEl);
+
+        //check to see if there are any storedDescription in localStorage. If so, set them to the empty descriptions array
+        var storedMeetings = JSON.parse(localStorage.getItem("meetings"));
+        if (storedMeetings !== null){
+            meetings = storedMeetings;
+        }
+
+        var item = meetings.find(item => item.hour == h);
+        if (item !== undefined){
+            $(descriptionEl).val(item.description);
+
+
+        }
 
         var saveDiv = $("<div>");
         saveDiv.attr("class", "save");
@@ -91,20 +103,26 @@ function saveInput(btn){
         meetings = storedMeetings;
     }
 
-    // console.log(btn);
+    var dataHour = $(btn).attr("data-hour"); //gets the data-hour attribute from the clicked button and saves to dataHour variable
 
-    var dataHour = $(btn).attr("data-hour");
+    var item = meetings.find(item => item.hour === dataHour);
+    console.log(item);
 
-    // var des = $(".description[data-hour = dataHour]").text();
-
-    var eventData = {
-        hour: dataHour,
-        description: $("#" + dataHour).val()
+    if (item !== undefined) {
+        console.log("dataHour " + dataHour + " is in my array");
+        item.description = $("#" + dataHour + "description").val();
+      }else{
+          console.log(dataHour + " is not in the array");
+          var eventData = {
+            hour: dataHour,
+            description: $("#" + dataHour + "description").val()
+        }
+        meetings.push(eventData);
     }
 
-        meetings.push(eventData);
-
     console.log(meetings);
+    console.log(dataHour);
+    console.log(meetings.indexOf("dataHour"));
 
     localStorage.setItem("meetings", JSON.stringify(meetings));
 }
@@ -115,7 +133,6 @@ $(document).on("click", ".saveBtn", function(event){
     console.log("Save Button");
 
     saveInput($(this));
-
 });
 
 buildScheduler();
