@@ -6,8 +6,6 @@ var currentYear = eventMoment.format("YYYY");
 var currentMonth = eventMoment.format("MMMM");
 var currentDay = eventMoment.format("MMMM, D YYYY");
 var currentHour = parseInt(eventMoment.format("HH"), 10);
-    // console.log(eventMoment.format("HH"));
-    // console.log("Current hour: " + currentHour);
 
 var meetings = []; //Creates empty meetings array
 
@@ -147,5 +145,3 @@ $(document).on("click", ".saveBtn", function(event){
 });
 
 buildScheduler();
-
-

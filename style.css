@@ -29,7 +29,7 @@ textarea{
   color: black;
   border-radius: 0;
   /* border-bottom: 5px solid #990000; */
-  border-bottom: 3px solid black;
+  border-bottom: 5px solid black;
   padding:0;
   margin: 0;
 }
@@ -91,15 +91,12 @@ textarea{
   background-color: #FFCCCC;
   color: black;
   font-weight:bold;
-  border: 2px solid black;
+  border: 3px solid black;
 }
 
 .future {
   background-color: #CC6666;
   color:white;
-}
-.save{
-
 }
 
 .saveBtn {
