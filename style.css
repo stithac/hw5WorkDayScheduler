@@ -42,15 +42,14 @@ textarea{
   display: inline-block;
 }
 
+.container{
+  margin-bottom: 50px;
+}
+
 .description{
   white-space: pre-wrap;
   width:80%;
   height:100%;
-
-  /* border-top: 2px solid white; */
-  /* padding-top:0; */
-  /* vertical-align: top; */
-  /* display: inline-block; */
 }
 
 .time-block{
@@ -80,7 +79,7 @@ textarea{
 
 .hour{
   border-top: 2px dashed #000000;
-  font-weight:bold;
+  font-weight:bolder;
 }
 
 .past {
