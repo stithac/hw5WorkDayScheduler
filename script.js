@@ -14,6 +14,8 @@ var meetings = []; //Creates empty meetings array
 //Function buildScheduler() is called on page load
 //builds out the actual scheduler page with the times/descriptions
 function buildScheduler(){
+    console.log("Start of buildScheduler() function");
+
     var j = 0;
     var h = 9;
     var hourEl;
@@ -80,9 +82,8 @@ function buildScheduler(){
         saveDiv.attr("class", "smallEl");
         $(timeblockDiv).append(saveDiv);
 
-        var saveBtn = $("<input>");
-        saveBtn.attr("type", "submit");
-        saveBtn.attr("class", "saveBtn");
+        var saveBtn = $("<button>");
+        saveBtn.attr("class", "saveBtn fas fa-save");
         saveBtn.attr("data-hour", h);
         $(saveDiv).append(saveBtn);
 
@@ -93,13 +94,11 @@ function buildScheduler(){
         if (storedMeetings !== null){
             meetings = storedMeetings;
         }
-
         var item = meetings.find(item => item.hour == h);
 
         if (item !== undefined){
             $(descriptionEl).val(item.description);
         }
-
         // startHour++;
         j++;
         h++;
@@ -107,6 +106,7 @@ function buildScheduler(){
 }
 
 function saveInput(btn){
+    console.log("Start of saveInput() function");
 
     //check to see if there are any storedDescription in localStorage. If so, set them to the empty descriptions array
     var storedMeetings = JSON.parse(localStorage.getItem("meetings"));
@@ -141,7 +141,7 @@ function saveInput(btn){
 $(document).on("click", ".saveBtn", function(event){
 
     event.preventDefault();
-    console.log("Save Button");
+    console.log("Save Button Clicked!");
 
     saveInput($(this));
 });
