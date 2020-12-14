@@ -21,7 +21,7 @@ function buildScheduler(){
     $(".imgGif").attr("src", "./Assets/busy-working-gif.gif"); //Add gifImg to the page
 
     $("#currentDay").text(currentDay); //Update the current day
-    $("#currentDay").attr("style", "font-weight:bold");
+    $("#currentDay").attr("style", "font-weight:bold; color:#990000; font-size: 26px");
 
     for(i = 0; i < 9; i++){
 
