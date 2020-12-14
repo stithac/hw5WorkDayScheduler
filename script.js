@@ -4,7 +4,7 @@ var eventMoment = moment(); //Moment() object that gets current date/time
     console.log(eventMoment); //Console log current date and time
 var currentYear = eventMoment.format("YYYY");
 var currentMonth = eventMoment.format("MMMM");
-var currentDay = eventMoment.format("MMMM, D YYYY");
+var currentDay = eventMoment.format("MMMM D, YYYY");
 var currentHour = parseInt(eventMoment.format("HH"), 10);
 
 var meetings = []; //Creates empty meetings array
