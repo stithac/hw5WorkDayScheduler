@@ -5,6 +5,9 @@ This Application runs in the browser and is a simple calendar that allows a user
 
 The application display is a calendar with timeblocks for each of the working hours of 9AM - 5PM.  Timeblocks that have already passed, are shaded in grey. The current timeblock is shaded in  light red with bold font, and the future timeblocks are shaded in dark red. When a user clicks any of the timeblock save buttons, the description text and time are saved to their browser's localStorage. Once the page is re-loaded, all previously saved events are displayed on the page. Link to application: https://stithac.github.io/hw5WorkDayScheduler/
 
+Screenshot of app:
+![Alt text](./Assets/site-screenshot.PNG?raw=true)
+
 ## Features
 * Application calls the buildScheduler() function on load.  This function builds out the display.
 * Application pulls timeblocks from a pre-populated array of times and dynamically creates the timeblock divs when the page loads.
