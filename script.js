@@ -20,7 +20,7 @@ function buildScheduler(){
     var h = 9;
     var hourEl;
 
-    $(".imgGif").attr("src", "https://media.giphy.com/media/iH6ZjzyLgZSt3j0zzG/giphy.gif"); //Add gifImg to the page
+    $(".imgGif").attr("src", "./Assets/busy-working-gif.gif"); //Add gifImg to the page
 
     $("#currentDay").text(currentDay); //Update the current day
     $("#currentDay").attr("style", "font-weight:bold");
